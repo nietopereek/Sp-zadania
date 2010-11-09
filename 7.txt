@@ -1,0 +1,8 @@
+echo "Ala ma kota. Kot ma Ale." | sed -e 's/./!/'
+Zamienia pierwszy znak na wykrzynik
+echo "Ala ma kot. Kot ma Ale." | sed -e 's/\./!/'
+echo "Zamienia pierwszą napotkaną kropkę na wykrzyknik"
+echo "Ala. ma kota. Kot. ma Ale." | sed -e 's/./!/g'
+Zamienia każdy znak na kropkę
+echo "Ala ma. kota. Kot ma Ale." | sed -e 's/\./!/g'
+Zamienia każdą kropkę na wykrzyknik
