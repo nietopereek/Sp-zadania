@@ -1,11 +1,13 @@
 #!/bin/bash
 liczba=`python -c "import random; print random.randrange(1,50);"`
-liczbaa=4
-while [ "$liczbaa" -ne "$liczba" ]; do
+while true; do
 echo " Podaj liczbę "
-read liczba
-    if ["$liczbaa" -eq "$liczba"]; then
+read liczbaa
+clear
+echo "Twoja podana liczba to : $liczbaa"
+    if [ "$liczbaa" -eq "$liczba" ]; then
     echo "Zgadłeś! Podałeś wylosowaną liczbę!"
+    exit
     elif [ "$liczbaa" -lt "$liczba" ];  then
     echo "Podałeś liczbę mniejszą od liczby wylosowanej" 
     elif [ "$liczbaa" -gt "$liczba" ];  then
@@ -13,5 +15,6 @@ read liczba
     else 
     echo " Nie podałeś liczby"
     fi
+    echo "Naciśnij Ctrl+C żeby wyjść"
 done
 
