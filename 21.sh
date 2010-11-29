@@ -8,5 +8,5 @@ echo "Pliki większe niż 100KB : "
 find -size +100
 echo " Pliki puste : "
 find -size -1c
-"Pliki nieużywane przez miesiąc + są większe niż 500KB : "
+echo "Pliki nieużywane przez miesiąc + są większe niż 500KB : "
 find -atime +30 -size +500k
