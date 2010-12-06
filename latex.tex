@@ -1,0 +1,191 @@
+\documentclass[12pt,a4paper]{article}
+
+% ustawienia marginesu
+\usepackage[left=1.6in,right=.8in,top=1.5in,bottom=1.5in]{geometry}
+
+% polskie reguły dzielenia wyrazów itd
+\usepackage{polski}
+
+% polskie znaki zakodowane w UTF8
+\usepackage[utf8]{inputenc}
+
+% automatyczne generowanie odnośników w plikach PDF
+%\usepackage[pdftex,linkbordercolor={0 0.9 1}]{hyperref}
+
+% pakiety matematyczne
+\usepackage{amsthm,amsmath,amsfonts,amssymb,mathrsfs}
+
+% ładne składanie odnośników do stron www
+\usepackage{url}
+\usepackage{textcomp}
+% rozbudowane możliwości wypunktowań
+\usepackage{enumerate}
+
+% możliwość dodawania plików graficznych
+\usepackage{graphicx} 
+
+%%% definicje twierdzeń itd :)
+\newtheorem{tw}{Twierdzenie}[section]
+\newtheorem{stw}[tw]{Stwierdzenie}
+\newtheorem{fakt}[tw]{Fakt}
+\newtheorem{lemat}[tw]{Lemat}
+
+\theoremstyle{definition}
+\newtheorem{df}[tw]{Definicja}
+\newtheorem{ex}[tw]{Przykład}
+\newtheorem{uw}[tw]{Uwaga}
+\newtheorem{wn}[tw]{Wniosek}
+\newtheorem{zad}{Zadanie}
+
+% oznaczenia zbiorów liczbowych
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Q}{\mathbb{Q}}
+
+
+% wartość bezwzględna, norma, iloczyn skalarny, nośnik, rozpięcie przestrzeni...
+\providecommand{\abs}[1]{\left\lvert#1\right\rvert}
+\providecommand{\var}[1]{\operatorname{var}(#1)}
+
+% fajne nagłówki i stopki na stronie
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[R]{\textbf{\thepage}}
+\fancyhead[L]{\small\sffamily \nouppercase{\leftmark}}
+\renewcommand{\headrulewidth}{0.4pt} 
+\renewcommand{\footrulewidth}{0.4pt}
+
+% typowe dane dokumentu
+\title{Funkcje ciągłe i różniczkowalne}
+\date{30 Listopada 2010}
+
+% tu podaj swoje imię i nazwisko!
+\author{Witold Bołt}
+
+% zaczynamy dokument
+\begin{document}
+ 
+% pokaż tytuł
+\maketitle
+
+% spis treści
+\tableofcontents
+
+\section{Funkcje ciągłe}
+
+\begin{df}
+(funkcja ciągła). Niech f: 
+\begin{math} (a,b) \to R \ oraz \ niech \ x_{0} \in (a,b).
+\end{math}
+Mówimy, że funkcja f jest ciągła w punkcie $x_{0}$ wtedy i tylko wtedy, gdy:
+\center $ \bigvee_{\epsilon>0}\exists_{\delta>0}  \bigvee_x \in (a,b) |x-x_{0}| < \delta\rightarrow |f(x)-f(x_{0}| < \epsilon  $ 
+\end{df}
+\begin{ex}
+Wielomiany, funkcje trygonometryczne, wykładnicze, logarytmicz-
+ne są ciągłe w każdym punkcie swojej dziedziny.
+\end{ex}
+
+\begin{ex}
+Funkcja f dana jest wzorem:
+
+	
+\begin{center}
+	 $f(x) =  \begin{cases} {1} x+1 \ dla  \ x \neq 0 
+		\\  0 \ dla \ x = 0  \end{cases}$	
+\end{center}	
+	\end {ex} 
+
+Jest ciągła w każdym punkcie poza $x_{0} = 0.$
+
+Niech $\mathbb{Q}$ oznacza zbiór wszystkich liczb wymiernych.
+
+\begin{ex}
+Funkcja f dana wzorem:
+
+f(x) = $ \left \lbrace  0 \ dla \ x \in \mathbb{Q}   \\
+1 \ dla \ x \not \in \mathbb{Q}
+ \right \rbrace $ \\
+nie jest ciągła w żadnym punkcie.
+\end{ex}
+
+\begin{ex}
+Funkcja f dana wzorem: \\nie 
+f(x) = $ \left \lbrace 0 \ dla \ x \in \mathbb{Q} \\ 
+	x \ dla \  x \not \in \mathbb{Q} \right \rbrace $ \\
+Jest ciągła w punkcie $ x_{0} = 0, $ ale nie jest ciągła w pozostałych punktach dziedziny.
+\end{ex}
+
+\begin{zad}
+Udowodnij prawdziwosć podanych przykładów.
+\end{zad}
+
+\begin{df}
+Jesli funkcja f: A $ \to \mathbb{R} $ jest ciągła w każdym punkcie swojej dziedziny A to mówimy krótko,że jest ciągła. \\ \\
+Poniższe twierdzenie zbiera podstawowe własnosci zbioru funkcji ciągłych.
+\end{df}
+
+\begin{tw}
+Niech funkcje f,g: R $\in \mathbb{R}$ będą ciągłe, oraz niech $ \alpha,\beta \in \mathbb{R}.$ \\
+Wtedy funkcje: \\ \\
+a) $h_{1}(x) = \alpha \cdot f(x) + \beta \cdot g(x),$
+b) $h_{2}(x) = f(x) \cdot g(x),$
+c) $h_{3}(x) = \frac {f(x)} {g(x)} $ ( o ile g(x) $ \neq 0 \ dla \ dowolnego \ x \in \mathbb{R} $),
+d) $h_{4}(x) = f(g(x)),$ \\ \\
+są ciągłe.
+\end{tw}
+Następne twierdzenie zwane powszechnie „własnością Darboux” lub twierdze-
+niem o wartości pośredniej ma liczne praktyczne zastosowania. Mówi ono o tym,
+że jeśli funkcja ciągła przyjmuje jakieś dwie wartości, to przy odpowiednich założe-
+niach co do dziedziny, przyjmuje też wszystkie wartości pośrednie. Możemy sobie to
+łatwo wyobrazić na przykładzie funkcji, która opisuje zmianę temperatury w czasie.
+Jeśli o 7:00 było  -1 \textcelsius \
+ a o 9:00 było 2 \textcelsius \
+, to zapewne gdzieś między 7:00 a 9:00 był
+taki moment, że temperatura wynosiła dokładnie 0 \textcelsius
+
+
+
+\begin{tw}
+Niech f: [a,b] $ \to \mathbb{Q} $ ciągła, oraz niech f(a) $\neq$ f(b). Wtedy dla dowolnego $ y_{0} \in conv \lbrace f(a), f(b) \rbrace \ istnieje \ x_{0} \in [a,b]\ takie, że \ f(x_{0}) = y_{0}. $
+\end{tw}
+
+\section{Różniczkowalnosć}
+\begin{df}
+Niech g: (a,b) $ \in \mathbb{R} \ , x_{0} \ in (a,b) $ oraz f ciągła w otoczeniu punktu $ x_{0}. $ Jesli istnieje granica: 
+\center
+$ {\mathop{\lim}\limits_{x \to x_{0}}  \frac {f(x) - f(x_{0})} {x-x_{0}}} $ \\
+i jest skończona, to oznaczamy ją przez $ f^{\prime}(x_{0}) $ i nazywamy pochodną funkcji f w punkcie $ x_{0} $
+\end{df}
+
+\begin{df}
+Jeśli funkcja f posiada pochodną w każdym punkcie swojej dziedzi-
+ny, to mówimy, że f jest różniczkowalna. Istnieje wtedy funkcja f0
+, która każdemu
+punktowi z dziedziny funkcji f przyporządkowuje wartość pochodnej pochodnej
+funkcji f w tym punkcie.
+\end {df}
+
+\begin{ex}
+Wielomiany, funkcje trygonometryczne, wykładnicze, logarytmicz-
+ne są różniczkowalne w każdym punkcie dziedziny.
+\end{ex} 
+
+\begin{ex}
+Funkcja f(x) = |x| jest ciągła, ale nie posiada pochodnej w punkcie 
+$x_{0} = 0 $
+\end{ex}
+
+\begin{tw}
+Niech f: [a,b] $ \rightarrow \mathbb{R} $ ciągła i różniczkowalna na (a,b). Dodatkowo
+niech $ f \prime (x) \neq 0 \ dla \ x \in (a,b), \ oraz \ niech \ m = min_{x \in [a,b]} f(x), M = max_{x \in [a,b]} f(x). $ \\
+wtedy napewno f(a) = m, f(b) = M lub f(a) = M i f(b) = m.
+\end{tw}
+
+
+
+
+
+
+\end{document}
