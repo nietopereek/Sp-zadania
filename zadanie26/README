@@ -1,0 +1,1 @@
+Program c1 wykorzystuje silnię do obliczania Newtona, co przy dużych liczbach potrafi wyjść poza zakres int, co sprawia, że otrzymujemy wynik ujemny. C2 natomiast wykorzystuje tylko operacje dodawania/odejmowania i dla pętli 20x20 działa bez zarzutów.
